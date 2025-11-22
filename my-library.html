@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Моя библиотека | Book Tracker</title>
+    <link rel="stylesheet" href="my-library.css" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Левая тонкая панель - футер -->
+      <nav class="footer-nav">
+        <div class="nav-icons-top">
+          <div class="nav-icon active" title="Главная">
+            <i class="fas fa-books"></i>
+            <a href="main-page.html" class="menu-link"></a>
+          </div>
+        </div>
+
+        <div class="nav-icons-bottom">
+          <div class="nav-icon" title="Настройки">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="nav-icon" title="Уведомления">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="nav-icon" title="Поддержка">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <div class="nav-icon" title="Профиль">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Боковое меню -->
+      <aside class="side-menu">
+        <div class="menu-content">
+          <h1 class="menu-title">Меню</h1>
+          <ul class="main-menu">
+            <li class="menu-item active">
+              <a href="add-book.html" class="menu-link">
+                <i class="fas fa-bookmark menu-icon"></i>
+                Моя библиотека
+              </a>
+            </li>
+            <li class="menu-item has-submenu">
+              <a href="add-book.html" class="menu-link">
+                <i class="fas fa-edit menu-icon"></i>
+                Добавление/редактирование
+              </a>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="add-book.html">
+                    <i class="fas fa-plus submenu-icon"></i>
+                    Добавить книгу
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#">
+                    <i class="fas fa-pen submenu-icon"></i>
+                    Редактировать из библиотеки
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="fas fa-chart-bar menu-icon"></i>
+                Статистика
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="fas fa-book-open menu-icon"></i>
+                Общая библиотека
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="main-content">
+        <!-- Верхняя панель с профилем -->
+        <header class="content-header">
+          <h1 class="page-title">Моя библиотека</h1>
+          <button class="profile-btn">
+            <i class="fas fa-user profile-icon"></i>
+            Мой профиль
+          </button>
+        </header>
+
+        <!-- Карточка библиотеки -->
+        <div class="content-card">
+          <div class="library-header">
+            <h2 class="card-title">Все книги</h2>
+            <div class="library-stats">
+              <span class="stat-item">
+                <i class="fas fa-book"></i>
+                Всего книг: <strong id="total-books"></strong>
+              </span>
+              <span class="stat-item">
+                <i class="fas fa-check-circle"></i>
+                Прочитано: <strong id="read-books"></strong>
+              </span>
+              <span class="stat-item">
+                <i class="fas fa-clock"></i>
+                В процессе: <strong id="reading-books"></strong>
+              </span>
+            </div>
+          </div>
+
+          <!-- Фильтры и поиск -->
+          <!-- Элементы управления библиотекой -->
+          <div class="library-controls">
+            <div class="search-box">
+              <i class="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Поиск по названию/автору"
+                id="search-input"
+              />
+              <button class="search-btn" id="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="filter-group">
+              <select class="filter-select" id="genre-filter">
+                <option value="">Жанр</option>
+                <option value="fantasy">Фэнтези</option>
+                <option value="sci-fi">Научная фантастика</option>
+                <option value="hstorical">Историчесий роман</option>
+                <option value="romance">Роман</option>
+                <option value="mystery">Детектив</option>
+                <option value="psycology">Психология</option>
+              </select>
+              <select class="filter-select" id="status-filter">
+                <option value="">Статус</option>
+                <option value="reading">Читаю</option>
+                <option value="finished">Прочитана</option>
+                <option value="planned">Хочу прочитать</option>
+              </select>
+              <select class="filter-select" id="month-filter">
+                <option value="">Месяц</option>
+                <option value="1">Январь</option>
+                <option value="2">Февраль</option>
+                <option value="3">Март</option>
+                <option value="4">Апрель</option>
+                <option value="5">Май</option>
+                <option value="6">Июнь</option>
+                <option value="7">Июль</option>
+                <option value="8">Август</option>
+                <option value="9">Сентябрь</option>
+                <option value="10">Октябрь</option>
+                <option value="11">Ноябрь</option>
+                <option value="12">Декабрь</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Сетка книг -->
+          <div class="books-grid" id="books-grid">
+            <!-- Книги будут добавляться через JavaScript -->
+          </div>
+
+          <!-- Сообщение если книг нет -->
+          <div class="empty-library" id="empty-library" style="display: none">
+            <i class="fas fa-book-open empty-icon"></i>
+            <h3>Библиотека пуста</h3>
+            <p>Добавьте первую книгу, чтобы начать отслеживать чтение</p>
+            <a href="add-book.html" class="btn btn-primary">
+              <i class="fas fa-plus-circle btn-icon"></i>
+              Добавить книгу
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/my-library.js"></script>
+  </body>
+</html>

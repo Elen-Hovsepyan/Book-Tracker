@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Добавление книги | Book Tracker</title>
+    <link rel="stylesheet" href="styles/add-book.css" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Левая тонкая панель - футер -->
+      <nav class="footer-nav">
+        <div class="nav-icons-top">
+          <div class="nav-icon active" title="Главная">
+            <i class="fas fa-books"></i>
+            <a href="main-page.html" class="menu-link"></a>
+          </div>
+        </div>
+
+        <div class="nav-icons-bottom">
+          <div class="nav-icon" title="Настройки">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="nav-icon" title="Уведомления">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="nav-icon" title="Поддержка">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <div class="nav-icon" title="Профиль">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Боковое меню -->
+      <aside class="side-menu">
+        <div class="menu-content">
+          <h1 class="menu-title">Меню</h1>
+          <ul class="main-menu">
+            <li class="menu-item">
+              <a href="my-library.html" class="menu-link">
+                <i class="fas fa-bookmark menu-icon"></i>
+                Моя библиотека
+              </a>
+            </li>
+            <li class="menu-item active has-submenu">
+              <a href="add-book.html" class="menu-link">
+                <i class="fas fa-edit menu-icon"></i>
+                Добавление/редактирование
+              </a>
+              <ul class="submenu">
+                <li class="submenu-item active">
+                  <a href="add-book.html">
+                    <i class="fas fa-plus submenu-icon"></i>
+                    Добавить книгу
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#">
+                    <i class="fas fa-pen submenu-icon"></i>
+                    Редактировать из библиотеки
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="fas fa-chart-bar menu-icon"></i>
+                Статистика
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="fas fa-book-open menu-icon"></i>
+                Общая библиотека
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="main-content">
+        <!-- Верхняя панель с профилем -->
+        <header class="content-header">
+          <h1 class="page-title">Добавление/редактирование книги</h1>
+          <button class="profile-btn">
+            <i class="fas fa-user profile-icon"></i>
+            Мой профиль
+          </button>
+        </header>
+
+        <!-- Карточка добавления книги -->
+        <div class="content-card">
+          <h2 class="card-title">Добавить книгу</h2>
+
+          <form id="book-form" class="book-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="book-title" class="form-label"
+                  >Название книги</label
+                >
+                <input
+                  type="text"
+                  id="book-title"
+                  class="form-input"
+                  placeholder="Введите название книги"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="book-author" class="form-label">Автор</label>
+                <input
+                  type="text"
+                  id="book-author"
+                  class="form-input"
+                  placeholder="Введите автора"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="book-genre" class="form-label">Жанр</label>
+                <select id="book-genre" class="form-select">
+                  <option value="">Выбрать жанр</option>
+                  <option value="fantasy">Фэнтези</option>
+                  <option value="sci-fi">Научная фантастика</option>
+                  <option value="hstorical">Историчесий роман</option>
+                  <option value="romance">Роман</option>
+                  <option value="mystery">Детектив</option>
+                  <option value="psycology">Психология</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="book-status" class="form-label">Статус</label>
+                <select id="book-status" class="form-select">
+                  <option value="planned">Выбрать статус</option>
+                  <option value="reading">Читаю</option>
+                  <option value="finished">Прочитана</option>
+                  <option value="wish">Хочу прочитать</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="start-date" class="form-label">Начало</label>
+                <input type="date" id="start-date" class="form-input" />
+              </div>
+
+              <div class="form-group">
+                <label for="end-date" class="form-label">Конец</label>
+                <input type="date" id="end-date" class="form-input" />
+              </div>
+            </div>
+
+            <div class="form-group notes-group">
+              <label for="book-notes" class="form-label">Мои заметки</label>
+
+              <textarea
+                id="book-notes"
+                class="form-textarea"
+                placeholder="Напишите о ваших впечатлениях"
+                rows="4"
+              ></textarea>
+            </div>
+
+            <!-- Оценка книги -->
+            <div class="rating-section">
+              <label class="form-label">Оценить книгу</label>
+              <div class="rating-stars">
+                <span class="star" data-rating="1">
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="star" data-rating="2">
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="star" data-rating="3">
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="star" data-rating="4">
+                  <i class="far fa-star"></i>
+                </span>
+                <span class="star" data-rating="5">
+                  <i class="far fa-star"></i>
+                </span>
+              </div>
+              <input type="hidden" id="book-rating" name="rating" value="0" />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Сохранить книгу
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/add-book.js"></script>
+  </body>
+</html>
