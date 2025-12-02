@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мой профиль | Book Tracker</title>
+    <link rel="stylesheet" href="profile.css" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Левая тонкая панель - футер -->
+      <nav class="footer-nav">
+        <div class="nav-icons-top">
+          <a href="main-page.html" class="nav-icon" title="Главная">
+            <i class="fas fa-books"></i>
+          </a>
+        </div>
+
+        <div class="nav-icons-bottom">
+          <div class="nav-icon" title="Настройки">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="nav-icon" title="Уведомления">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="nav-icon" title="Поддержка">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <a href="profile.html" class="nav-icon active" title="Профиль">
+            <i class="fas fa-user"></i>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Боковое меню -->
+      <aside class="side-menu">
+        <div class="menu-content">
+          <h1 class="menu-title">Меню</h1>
+          <ul class="main-menu">
+            <li class="menu-item">
+              <a href="my-library.html" class="menu-link">
+                <i class="fas fa-bookmark menu-icon"></i>
+                Моя библиотека
+              </a>
+            </li>
+            <li class="menu-item has-submenu">
+              <a href="add-book.html" class="menu-link">
+                <i class="fas fa-edit menu-icon"></i>
+                Добавление/редактирование
+              </a>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="add-book.html">
+                    <i class="fas fa-plus submenu-icon"></i>
+                    Добавить книгу
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#">
+                    <i class="fas fa-pen submenu-icon"></i>
+                    Редактировать из библиотеки
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a href="statistics.html" class="menu-link">
+                <i class="fas fa-chart-bar menu-icon"></i>
+                Статистика
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="fas fa-book-open menu-icon"></i>
+                Общая библиотека
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="main-content">
+        <!-- Верхняя панель -->
+        <header class="content-header">
+          <h1 class="page-title">Мой профиль</h1>
+          <button class="profile-btn" id="edit-profile-btn">
+            <i class="fas fa-edit profile-icon"></i>
+            Редактировать
+          </button>
+        </header>
+
+        <!-- Основная карточка профиля -->
+        <div class="content-card">
+          <!-- Профиль пользователя -->
+          <div class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class="profile-info">
+                <h2 class="profile-name" id="user-name">Иван Иванов</h2>
+                <p class="profile-email" id="user-email">ivan@example.com</p>
+                <div class="profile-stats">
+                  <div class="stat-item">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">книг</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-value">8</span>
+                    <span class="stat-label">прочитано</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-value">4.5</span>
+                    <span class="stat-label">средняя</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Дополнительная информация -->
+          <div class="info-section">
+            <h3 class="section-title">
+              <i class="fas fa-info-circle"></i>
+              О себе
+            </h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Любимый жанр</span>
+                  <span class="info-value" id="fav-genre">Фэнтези</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Читаю с</span>
+                  <span class="info-value" id="reading-since">2015 года</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-flag"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Цель на год</span>
+                  <span class="info-value" id="year-goal">24 книги</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Языки</span>
+                  <span class="info-value" id="languages"
+                    >Русский, Английский</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Настройки -->
+          <!-- Настройки -->
+          <div class="settings-section">
+            <h3 class="section-title">
+              <i class="fas fa-cog"></i>
+              Настройки профиля
+            </h3>
+            <div class="settings-grid">
+              <button class="setting-option" id="change-password">
+                <div class="setting-icon">
+                  <i class="fas fa-key"></i>
+                </div>
+                <div class="setting-content">
+                  <span class="setting-title">Изменить пароль</span>
+                  <span class="setting-description"
+                    >Обновите пароль для входа</span
+                  >
+                </div>
+                <i class="fas fa-chevron-right setting-arrow"></i>
+              </button>
+
+              <button class="setting-option" id="notification-settings">
+                <div class="setting-icon">
+                  <i class="fas fa-bell"></i>
+                </div>
+                <div class="setting-content">
+                  <span class="setting-title">Уведомления</span>
+                  <span class="setting-description">Настройте оповещения</span>
+                </div>
+                <i class="fas fa-chevron-right setting-arrow"></i>
+              </button>
+
+              <button class="setting-option" id="privacy-settings">
+                <div class="setting-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="setting-content">
+                  <span class="setting-title">Приватность</span>
+                  <span class="setting-description"
+                    >Настройки конфиденциальности</span
+                  >
+                </div>
+                <i class="fas fa-chevron-right setting-arrow"></i>
+              </button>
+
+              <button class="setting-option" id="export-data">
+                <div class="setting-icon">
+                  <i class="fas fa-download"></i>
+                </div>
+                <div class="setting-content">
+                  <span class="setting-title">Экспорт данных</span>
+                  <span class="setting-description">Скачайте ваши данные</span>
+                </div>
+                <i class="fas fa-chevron-right setting-arrow"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Выход -->
+          <div class="logout-section">
+            <button class="logout-btn" id="logout-btn">
+              <i class="fas fa-sign-out-alt"></i>
+              Выйти из аккаунта
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Модальное окно редактирования профиля -->
+    <div id="editProfileModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Редактировать профиль</h2>
+          <span class="close">&times;</span>
+        </div>
+        <form class="edit-profile-form" id="editProfileForm">
+          <div class="form-group">
+            <label class="form-label">Имя</label>
+            <input
+              type="text"
+              class="form-input"
+              id="edit-name"
+              value="Иван Иванов"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-input"
+              id="edit-email"
+              value="ivan@example.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Любимый жанр</label>
+            <select class="form-input" id="edit-genre">
+              <option value="fantasy">Фэнтези</option>
+              <option value="sci-fi">Научная фантастика</option>
+              <option value="historical">Исторический роман</option>
+              <option value="romance">Роман</option>
+              <option value="mystery">Детектив</option>
+              <option value="psychology">Психология</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Цель на год (количество книг)</label>
+            <input
+              type="number"
+              class="form-input"
+              id="edit-goal"
+              value="24"
+              min="1"
+              max="100"
+            />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="button" class="btn btn-secondary close-modal">
+              Отмена
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>

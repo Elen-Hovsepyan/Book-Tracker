@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Обработка отправки форм
+  // Обработка отправки форм с редиректом на профиль
   const authForms = document.querySelectorAll(".auth-form");
   authForms.forEach((form) => {
     form.addEventListener("submit", function (e) {
@@ -81,12 +81,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Здесь можно добавить AJAX запрос к серверу
       console.log("Отправка формы:", Object.fromEntries(formData));
-      alert(`${action}... (заглушка для демонстрации)`);
 
-      // Закрываем модальное окно после успешной отправки
+      // Показываем сообщение об успехе
+      alert(`${action} успешно! Перенаправляем на страницу профиля...`);
+
+      // Закрываем модальное окно
       loginModal.style.display = "none";
       registerModal.style.display = "none";
       document.body.style.overflow = "auto";
+
+      // Редирект на страницу профиля через 1 секунду
+      setTimeout(() => {
+        window.location.href = "profile.html";
+      }, 1000);
     });
   });
 
@@ -99,97 +106,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Остальной код главной страницы...
+  // Обработчик для кнопки "Начать отслеживание" на главной
   const startTrackingBtn = document.getElementById("startTracking");
   if (startTrackingBtn) {
     startTrackingBtn.addEventListener("click", function () {
+      // Открываем форму регистрации
       registerModal.style.display = "block";
       document.body.style.overflow = "hidden";
     });
   }
-});
-
-/*основная логика странички */
-/*основная логика странички */
-/*основная логика странички */
-/*основная логика странички */
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Главная страница загружена");
-
-  // Анимация появления элементов
-  const animateOnScroll = () => {
-    const elements = document.querySelectorAll(".feature-card, .cta-section");
-
-    elements.forEach((element) => {
-      const elementTop = element.getBoundingClientRect().top;
-      const elementVisible = 150;
-
-      if (elementTop < window.innerHeight - elementVisible) {
-        element.style.opacity = "1";
-        element.style.transform = "translateY(0)";
-      }
-    });
-  };
-
-  // Установка начальных стилей для анимации
-  const featureCards = document.querySelectorAll(".feature-card");
-  const ctaSection = document.querySelector(".cta-section");
-
-  featureCards.forEach((card) => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(30px)";
-    card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  });
-
-  if (ctaSection) {
-    ctaSection.style.opacity = "0";
-    ctaSection.style.transform = "translateY(30px)";
-    ctaSection.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  }
-
-  // Запуск анимации
-  setTimeout(() => {
-    animateOnScroll();
-  }, 100);
-
-  window.addEventListener("scroll", animateOnScroll);
-
-  // Обработчики кнопок
-  const startTrackingBtn = document.getElementById("startTracking");
-  if (startTrackingBtn) {
-    startTrackingBtn.addEventListener("click", function () {
-      // Здесь можно добавить логику перехода
-      alert("Начинаем работу с трекером!");
-      // window.location.href = 'registration.html';
-    });
-  }
-
-  const learnMoreBtn = document.getElementById("learnMore");
-  if (learnMoreBtn) {
-    learnMoreBtn.addEventListener("click", function () {
-      // Плавная прокрутка к features
-      document.querySelector(".features-grid").scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  }
-
-  // Иконка дома (для консистентности)
-  const homeButton = document.getElementById("homeButton");
-  if (homeButton) {
-    homeButton.addEventListener("click", function (e) {
-      if (!window.location.href.endsWith("index.html")) {
-        e.preventDefault();
-        window.location.href = "index.html";
-      }
-    });
-  }
-
-  // Добавляем небольшой эффект при загрузке
-  document.body.style.opacity = "0";
-  setTimeout(() => {
-    document.body.style.transition = "opacity 0.5s ease";
-    document.body.style.opacity = "1";
-  }, 100);
 });

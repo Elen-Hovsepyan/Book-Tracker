@@ -1,3 +1,4 @@
+import "./dataManager.js";
 class LibraryManager {
   constructor() {
     this.filteredBooks = [];

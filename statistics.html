@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Статистика | Book Tracker</title>
+    <link rel="stylesheet" href="statistics.css" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Chart.js для графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Левая тонкая панель - футер -->
+      <nav class="footer-nav">
+        <div class="nav-icons-top">
+          <a href="main-page.html" class="nav-icon" title="Главная">
+            <i class="fas fa-home"></i>
+          </a>
+          <div class="nav-icon active" title="Статистика">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+        </div>
+
+        <div class="nav-icons-bottom">
+          <div class="nav-icon" title="Настройки">
+            <i class="fas fa-cog"></i>
+          </div>
+          <div class="nav-icon" title="Уведомления">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="nav-icon" title="Поддержка">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <a href="profile.html" class="nav-icon" title="Профиль">
+            <i class="fas fa-user"></i>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Боковое меню -->
+      <aside class="side-menu">
+        <div class="menu-content">
+          <h1 class="menu-title">Меню</h1>
+          <ul class="main-menu">
+            <li class="menu-item">
+              <a href="my-library.html" class="menu-link">
+                <i class="fas fa-bookmark menu-icon"></i>
+                Моя библиотека
+              </a>
+            </li>
+            <li class="menu-item has-submenu">
+              <a href="add-book.html" class="menu-link">
+                <i class="fas fa-edit menu-icon"></i>
+                Добавление/редактирование
+              </a>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="add-book.html">
+                    <i class="fas fa-plus submenu-icon"></i>
+                    Добавить книгу
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#">
+                    <i class="fas fa-pen submenu-icon"></i>
+                    Редактировать из библиотеки
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item active">
+              <a href="statistics.html" class="menu-link">
+                <i class="fas fa-chart-bar menu-icon"></i>
+                Статистика
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">
+                <i class="fas fa-book-open menu-icon"></i>
+                Общая библиотека
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Основной контент -->
+      <main class="main-content">
+        <!-- Верхняя панель с профилем -->
+        <header class="content-header">
+          <h1 class="page-title">Статистика чтения</h1>
+          <button class="profile-btn">
+            <i class="fas fa-user profile-icon"></i>
+            Мой профиль
+          </button>
+        </header>
+
+        <!-- Основная карточка статистики -->
+        <div class="content-card">
+          <div class="stats-overview">
+            <h2 class="card-title">Общая статистика</h2>
+
+            <!-- Карточки с общей статистикой -->
+            <div class="stats-cards">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Всего книг</h3>
+                  <p class="stat-number" id="total-books-stat">0</p>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Прочитано</h3>
+                  <p class="stat-number" id="read-books-stat">0</p>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>В процессе</h3>
+                  <p class="stat-number" id="reading-books-stat">0</p>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>Средний рейтинг</h3>
+                  <p class="stat-number" id="avg-rating-stat">0.0</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Два столбца с графиками -->
+            <div class="charts-grid">
+              <!-- Левая колонка -->
+              <div class="chart-column">
+                <div class="chart-container">
+                  <h3>
+                    <i class="fas fa-chart-pie"></i> Распределение по жанрам
+                  </h3>
+                  <canvas id="genreChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                  <h3><i class="fas fa-user-edit"></i> Топ авторов</h3>
+                  <canvas id="authorChart"></canvas>
+                </div>
+              </div>
+
+              <!-- Правая колонка -->
+              <div class="chart-column">
+                <div class="chart-container">
+                  <h3>
+                    <i class="fas fa-chart-line"></i> Активность по месяцам
+                  </h3>
+                  <canvas id="monthlyChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                  <h3><i class="fas fa-tasks"></i> Статус чтения</h3>
+                  <canvas id="statusChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Детальная информация -->
+            <div class="detailed-stats">
+              <h3><i class="fas fa-info-circle"></i> Детальная информация</h3>
+              <div class="stats-details">
+                <div class="detail-item">
+                  <h4>Самый популярный жанр:</h4>
+                  <p id="top-genre">-</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Любимый автор:</h4>
+                  <p id="top-author">-</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Книг добавлено в этом году:</h4>
+                  <p id="books-this-year">0</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Самая высокая оценка:</h4>
+                  <p id="highest-rating">-</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/statistics.js"></script>
+    <script type="module" src="js/dataManager.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+  </body>
+</html>
